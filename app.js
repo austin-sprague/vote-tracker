@@ -10,19 +10,19 @@ function Image(place,type,path,votes){
 // new image object constructor function for images in array
 
 var imagesArray = [
-  new Image ('bauhaus', 'Extra Strong Coffee', 'img/bauhaus.jpg',0),
-  new Image ('caffe vita','Roastery', 'img/cafe-vita.jpg',0),
-  new Image ('cherry street','Coffee House with Famous Barista', 'img/CherryStreet.jpg',0),
-  new Image ('elysian','Brewery', 'img/elysian.jpg',0),
-  new Image ('fremont','Brewery', 'img/fremont-brewing.png',0),
-  new Image ('hello robin','Specialty Cookies', 'img/hello-robin.jpg',0),
+  new Image ('bauhaus', 'Extra Strong Coffee', 'img/bauhaus.jpg'),
+  new Image ('caffe vita','Roastery', 'img/cafe-vita.jpg'),
+  new Image ('cherry street','Coffee House with Famous Barista', 'img/CherryStreet.jpg'),
+  new Image ('elysian','Brewery', 'img/elysian.jpg'),
+  new Image ('fremont','Brewery', 'img/fremont-brewing.png'),
+  new Image ('hello robin','Specialty Cookies', 'img/hello-robin.jpg'),
   new Image ('hilliards', 'Brewery','img/hilliards.jpg',0),
-  new Image ('hot cakes', 'Molten Chocolate Cakes','img/hot-cakes.jpg',0),
-  new Image ('molly-moon','Handmade Ice Cream', 'img/molly-moon.png',0),
-  new Image ('rainier','Beer', 'img/rainierbeer.jpg',0),
-  new Image ('starbucks','Coffee', 'img/starbucks.jpg',0),
-  new Image ('top pot','hand-forged donuts', 'img/top-pot.jpg',0),
-  new Image ('victrola', 'Roastery','img/victrola.jpg',0)
+  new Image ('hot cakes', 'Molten Chocolate Cakes','img/hot-cakes.jpg'),
+  new Image ('molly-moon','Handmade Ice Cream', 'img/molly-moon.png'),
+  new Image ('rainier','Beer', 'img/rainierbeer.jpg'),
+  new Image ('starbucks','Coffee', 'img/starbucks.jpg'),
+  new Image ('top pot','hand-forged donuts', 'img/top-pot.jpg'),
+  new Image ('victrola', 'Roastery','img/victrola.jpg')
 ]
 
 // random number generator
@@ -52,8 +52,6 @@ tracker.randChoice = function (){
 }
 
 
-
-
 // counter function
 
 tracker.voteFor = function (uri) {
@@ -76,46 +74,58 @@ left.addEventListener ('click', function(e) {
   targetSource = targetSource.split("tracker/")[1];
   tracker.voteFor(targetSource);
 
-  // console.log("the winner is" + imagesArray[results[0]].votes);
+  // console.log("the vote is + imagesArray[results[0]].votes);
   tracker.randChoice();
+  chartData();
+
 });
 
 right.addEventListener ('click', function(e) {
   var targetSource = e.target.src;
   targetSource = targetSource.split("tracker/")[1];
   tracker.voteFor(targetSource);
-  console.log("the vote is" + imagesArray[results[1]].votes);
+  //console.log("the vote is" + imagesArray[results[1]].votes);
   tracker.randChoice();
+  chartData();
+
 });
 
 tracker.randChoice();
 
 
+var chartData = function(){
 
-var data= [
-{
-  value: 25,
-  label: 'Coffee',
-  color: '#811BD6',
-  hightlight: '#811b33'
-},
+  var data= [
+    {
+      value: imagesArray[0].votes,
+      label: 'bauhaus',
+      color: '#811BD6',
+      hightlight: '#811b33'
+    },
 
-{
-  value: 25,
-  label: 'Pike Sign',
-  color: '#9CBABA',
-  hightlight: '#9CBA99'
-}
+    {
+      value: imagesArray[1].votes,
+      label: 'Caffe Vita',
+      color: '#9CBABA',
+      hightlight: '#9CBA99'
+    },
+    {
+      value: imagesArray[2].votes,
+      label: 'Cherry Street',
+      color: '#811BD6',
+      hightlight: '#811b33'
+    }
+  ];
 
-];
+  var context =document.getElementById('chart').getContext('2d');
 
-var context =document.getElementById('chart').getContext('2d');
-
-var seattleChart = new Chart(context).Doughnut(data, {
+  var seattleChart = new Chart(context).Doughnut(data, {
     animationSteps: 200,
     animationEasing: "easeOutBounce",
     animateRotate:  true,
     animateScale: true
 
-});
+  });
+};
 
+chartData();
