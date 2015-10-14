@@ -84,7 +84,7 @@ right.addEventListener ('click', function(e) {
   targetSource = targetSource.split("tracker/")[1];
   tracker.voteFor(targetSource);
   // console.log("the winner is" + imagesArray[tracker.randChoice()[1]].votes)
-  
+  tracker.randChoice();
 });
 
 tracker.randChoice();
