@@ -36,8 +36,8 @@ var tracker = {
 
 //randomly choosing image 1 and image 2
 
-var leftImage = document.getElementById('left image');
-var rightImage = document.getElementById('right image');
+var left = document.getElementById('left');
+var right = document.getElementById('right');
 
 tracker.randChoice = function (){
   var randChoice1 = this.randNum();
@@ -46,37 +46,46 @@ tracker.randChoice = function (){
     console.log ("duplicate found");
     randChoice2 = this.randNum();
   }
-  return [randChoice1, randChoice2];
+  var results = [randChoice1, randChoice2];
+  left.src = imagesArray[results[0]].path
+  right.src = imagesArray[results[1]].path 
 }
 
-leftImage.src = imagesArray[tracker.randChoice()[0]].path
-rightImage.src = imagesArray[tracker.randChoice()[1]].path
+
 
 
 // counter function
 
-tracker.counter = function () {
+tracker.voteFor = function (img) {
+  // for (var i in imagesArray){
+  //   // if (imagesArray[i]=== )
+  // }
+  
   this.votes = this.counter +=1;
 };
 
 
 // add event Listener
 
-leftImage.addEventListener ('click', function() {
-  imagesArray[tracker.randChoice()[0]].vote +=1;
-  console.log("the winner is" + imagesArray[tracker.randChoice()[0]].vote)
+left.addEventListener ('click', function() {
+  imagesArray[tracker.randChoice()[0]].votes +=1;
+  console.log("the winner is" + imagesArray[tracker.randChoice()[0]].votes)
+  tracker.randChoice();
 });
 
-rightImage.addEventListener ('click', function() {
-  imagesArray[tracker.randChoice()[1]].vote +=1;
-  console.log("the winner is" + imagesArray[tracker.randChoice()[1]].vote)
+right.addEventListener ('click', function() {
+  imagesArray[tracker.randChoice()[1]].votes +=1;
+  console.log("the winner is" + imagesArray[tracker.randChoice()[1]].votes)
+  tracker.randChoice();
   
 });
 
-var data {
-  votes: 
+tracker.randChoice();
+
+// var data {
+//   votes: null;
 
 
-}
+// }
 
 
