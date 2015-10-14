@@ -56,10 +56,13 @@ tracker.randChoice = function (){
 
 // counter function
 
-tracker.voteFor = function (img) {
-  // for (var i in imagesArray){
-  //   // if (imagesArray[i]=== )
-  // }
+tracker.voteFor = function (uri) {
+  for (var i in imagesArray){
+    if (imagesArray[i].path === uri){
+      imagesArray[i].votes +=1;
+    }
+    console.dir(imagesArray);
+  }
   
   this.votes = this.counter +=1;
 };
@@ -67,20 +70,26 @@ tracker.voteFor = function (img) {
 
 // add event Listener
 
-left.addEventListener ('click', function() {
-  imagesArray[tracker.randChoice()[0]].votes +=1;
-  console.log("the winner is" + imagesArray[tracker.randChoice()[0]].votes)
+left.addEventListener ('click', function(e) {
+  var targetSource = e.target.src;
+  targetSource = targetSource.split("tracker/")[1];
+  tracker.voteFor(targetSource);
+
+  // console.log("the winner is" + imagesArray[tracker.randChoice()[0]].votes)
   tracker.randChoice();
 });
 
-right.addEventListener ('click', function() {
-  imagesArray[tracker.randChoice()[1]].votes +=1;
-  console.log("the winner is" + imagesArray[tracker.randChoice()[1]].votes)
-  tracker.randChoice();
+right.addEventListener ('click', function(e) {
+  var targetSource = e.target.src;
+  targetSource = targetSource.split("tracker/")[1];
+  tracker.voteFor(targetSource);
+  // console.log("the winner is" + imagesArray[tracker.randChoice()[1]].votes)
   
 });
 
 tracker.randChoice();
+
+
 
 // var data {
 //   votes: null;
