@@ -31,7 +31,7 @@ var imagesArray = [
 var tracker = {
   randNum: function () {
     return Math.floor(Math.random() * (imagesArray.length));
-  } 
+  }
 };
 
 //randomly choosing image 1 and image 2
@@ -47,8 +47,8 @@ tracker.randChoice = function (){
     randChoice2 = this.randNum();
   }
   var results = [randChoice1, randChoice2];
-  left.src = imagesArray[results[0]].path
-  right.src = imagesArray[results[1]].path 
+  left.src = imagesArray[results[0]].path;
+  right.src = imagesArray[results[1]].path;
 }
 
 
@@ -61,11 +61,12 @@ tracker.voteFor = function (uri) {
     if (imagesArray[i].path === uri){
       imagesArray[i].votes +=1;
     }
-    console.dir(imagesArray);
+    // console.dir(imagesArray);
   }
-  
+
   this.votes = this.counter +=1;
 };
+
 
 
 // add event Listener
@@ -75,7 +76,7 @@ left.addEventListener ('click', function(e) {
   targetSource = targetSource.split("tracker/")[1];
   tracker.voteFor(targetSource);
 
-  // console.log("the winner is" + imagesArray[tracker.randChoice()[0]].votes)
+  // console.log("the winner is" + imagesArray[results[0]].votes);
   tracker.randChoice();
 });
 
@@ -83,7 +84,7 @@ right.addEventListener ('click', function(e) {
   var targetSource = e.target.src;
   targetSource = targetSource.split("tracker/")[1];
   tracker.voteFor(targetSource);
-  // console.log("the winner is" + imagesArray[tracker.randChoice()[1]].votes)
+  console.log("the vote is" + imagesArray[results[1]].votes);
   tracker.randChoice();
 });
 
@@ -91,10 +92,30 @@ tracker.randChoice();
 
 
 
-// var data {
-//   votes: null;
+var data= [
+{
+  value: 25,
+  label: 'Coffee',
+  color: '#811BD6',
+  hightlight: '#811b33'
+},
 
+{
+  value: 25,
+  label: 'Pike Sign',
+  color: '#9CBABA',
+  hightlight: '#9CBA99'
+}
 
-// }
+];
 
+var context =document.getElementById('chart').getContext('2d');
+
+var seattleChart = new Chart(context).Doughnut(data, {
+    animationSteps: 200,
+    animationEasing: "easeOutBounce",
+    animateRotate:  true,
+    animateScale: true
+
+});
 
