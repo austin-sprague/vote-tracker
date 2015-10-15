@@ -2,26 +2,46 @@
 <html>
 <head>
 
-  <title>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Seattle Spots</title>
 
-  </title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="layout.css">
   <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+<!--   <link rel="stylesheet" type="text/css" href="layout.css"> -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+ 
   <script src="chart.js"></script>
+
+
 </head>
 <body>
+  
   <header>
     <h1>Seattle</h1>
-
+    <p>Pick your favorite local spot</p>
   </header>
-  <div class = "photos">
-    <img id = "left" src=" " width = 300px height = 200px>
-    <img id = "right" src=" " width = 300px height =200px>
+  <div class="container">
+    <article class="main">
+      <section id="box-one" class="child">
+        <h4> Click Image to Vote for #1</h4>
+        <img id = "left" src=" " width = 300px height = 200px>
+<!-- 
+      </section>
 
-  <canvas id="chart" width="600" height="400"></canvas>
+      <section id="box-two" class="child"> -->
+        <h4>Click Image to Vote for #2</h4>
+        <img id = "right" src=" " width = 300px height =200px>
+
+      </section>
+
+      <section id= "box-three"class="child">
+        <p>And the Favorites Are</p>
+        <canvas id="chart" width="300" height="300"></canvas>
+      </section>
+    
+    </article>
   </div>
-
   <script src="app.js"></script>
 
 </body>

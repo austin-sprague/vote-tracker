@@ -1,5 +1,32 @@
-body {
-  
-font-family: 'Raleway', sans-serif;
+body{
+  font-family: 'Raleway', sans-serif;
 
+}
+.h1{
+  font-family: 'Raleway', sans-serif;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-grow:1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 1px dashed orange;
+  justify-content: space-around;
+}
+
+.child {
+  border: 3px solid blue;
+  flex-direction: row;
+  text-align: left;
+  /*align-self: flex-end;*/
+}
+
+#box-one, #box-two{
+  flex-grow: 1;
+
+}
+#box-three {
+  flex -grow:2;
 }
