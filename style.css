@@ -10,23 +10,30 @@ body{
 .container {
   display: flex;
   flex-grow:1;
-  flex-direction: row;
+  flex-direction: inline-block;
   flex-wrap: wrap;
-  border: 1px dashed orange;
   justify-content: space-around;
 }
 
 .child {
-  border: 3px solid blue;
-  flex-direction: row;
-  text-align: left;
-  /*align-self: flex-end;*/
+  
+ 
+  text-align: center;
+  padding: 20px 30px;
 }
 
 #box-one, #box-two{
-  flex-grow: 1;
+  display: inline-block;
+   border: 3px solid gray;
+ 
 
 }
 #box-three {
-  flex -grow:2;
+
+  #box-three.label{
+    text-align: center;
+  }
+  text-align: center;
+
+  
 }

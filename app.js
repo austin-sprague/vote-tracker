@@ -16,7 +16,7 @@ var imagesArray = [
   new Image ('elysian','Brewery', 'img/elysian.jpg'),
   new Image ('fremont','Brewery', 'img/fremont-brewing.png'),
   new Image ('hello robin','Specialty Cookies', 'img/hello-robin.jpg'),
-  new Image ('hilliards', 'Brewery','img/hilliards.jpg',0),
+  new Image ('hilliards', 'Brewery','img/hilliards.jpg'),
   new Image ('hot cakes', 'Molten Chocolate Cakes','img/hot-cakes.jpg'),
   new Image ('molly-moon','Handmade Ice Cream', 'img/molly-moon.png'),
   new Image ('rainier','Beer', 'img/rainierbeer.jpg'),
@@ -99,44 +99,44 @@ var chartData = function(){
     {
       value: imagesArray[0].votes,
       label: 'bauhaus',
-      color: '#811BD6',
+      color: '#3366CC',
       hightlight: '#811b33'
     },
 
     {
       value: imagesArray[1].votes,
       label: 'caffe vita',
-      color: '#9CBABA',
+      color: '#2E5CB8',
       hightlight: '#9CBA99'
     },
     {
       value: imagesArray[2].votes,
       label: 'cherry street',
-      color: '#811BD6',
+      color: '#2952A3',
       hightlight: '#811b33'
     },
     {
       value: imagesArray[3].votes,
       label: 'elysian',
-      color: '#9CBABA',
+      color: '#24478F',
       hightlight: '#9CBA99'
     },
     {
       value: imagesArray[4].votes,
       label: 'fremont',
-      color: '#9CBABA',
+      color: '#1F3D7A',
       hightlight: '#9CBA99'
     },
     {
       value: imagesArray[5].votes,
       label: 'hello robin',
-      color: '#9CBABA',
+      color: '#1A3366',
       hightlight: '#9CBA99'
     },
     {
       value: imagesArray[6].votes,
       label: 'hilliards',
-      color: '#9CBABA',
+      color: '#142952',
       hightlight: '#9CBA99'
     },
     {
@@ -148,31 +148,31 @@ var chartData = function(){
     {
       value: imagesArray[8].votes,
       label: 'molly-moon',
-      color: 'green',
+      color: '#33ADFF',
       hightlight: '#9CBA99'
     },
     {
       value: imagesArray[9].votes,
       label: 'rainier',
-      color: 'orange',
+      color: '#4DB8FF',
       hightlight: '#9CBA99'
     },
     {
     value: imagesArray[10].votes,
       label: 'starbucks',
-      color: 'grey',
+      color: '#66C2FF',
       hightlight: '#9CBA99'
     },
     {
     value: imagesArray[11].votes,
       label: 'top pot',
-      color: 'blue',
+      color: '#80CCFF',
       hightlight: '#9CBA99'
     },
     {
     value: imagesArray[12].votes,
       label: 'victrola',
-      color: 'red',
+      color: '#99D6FF',
       hightlight: '#9CBA99'
     }
   ];
