@@ -105,22 +105,82 @@ var chartData = function(){
 
     {
       value: imagesArray[1].votes,
-      label: 'Caffe Vita',
+      label: 'caffe vita',
       color: '#9CBABA',
       hightlight: '#9CBA99'
     },
     {
       value: imagesArray[2].votes,
-      label: 'Cherry Street',
+      label: 'cherry street',
       color: '#811BD6',
       hightlight: '#811b33'
+    },
+    {
+      value: imagesArray[3].votes,
+      label: 'elysian',
+      color: '#9CBABA',
+      hightlight: '#9CBA99'
+    },
+    {
+      value: imagesArray[4].votes,
+      label: 'fremont',
+      color: '#9CBABA',
+      hightlight: '#9CBA99'
+    },
+    {
+      value: imagesArray[5].votes,
+      label: 'hello robin',
+      color: '#9CBABA',
+      hightlight: '#9CBA99'
+    },
+    {
+      value: imagesArray[6].votes,
+      label: 'hilliards',
+      color: '#9CBABA',
+      hightlight: '#9CBA99'
+    },
+    {
+      value: imagesArray[7].votes,
+      label: 'hot cakes',
+      color: '#9CBABA',
+      hightlight: '#9CBA99'
+    },
+    {
+      value: imagesArray[8].votes,
+      label: 'molly-moon',
+      color: 'green',
+      hightlight: '#9CBA99'
+    },
+    {
+      value: imagesArray[9].votes,
+      label: 'rainier',
+      color: 'orange',
+      hightlight: '#9CBA99'
+    },
+    {
+    value: imagesArray[10].votes,
+      label: 'starbucks',
+      color: 'grey',
+      hightlight: '#9CBA99'
+    },
+    {
+    value: imagesArray[11].votes,
+      label: 'top pot',
+      color: 'blue',
+      hightlight: '#9CBA99'
+    },
+    {
+    value: imagesArray[12].votes,
+      label: 'victrola',
+      color: 'red',
+      hightlight: '#9CBA99'
     }
   ];
 
   var context =document.getElementById('chart').getContext('2d');
 
   var seattleChart = new Chart(context).Doughnut(data, {
-    animationSteps: 200,
+    animationSteps: 100,
     animationEasing: "easeOutBounce",
     animateRotate:  true,
     animateScale: true
