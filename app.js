@@ -77,10 +77,10 @@ left.addEventListener ('click', function(e) {
   var targetSource = e.target.src;
   targetSource = targetSource.split("tracker/")[1];
   tracker.voteFor(targetSource);
-  var stringifyImgArr = JSON.stringify(imagesArray);
-  localStorage.setItem('imgArr', stringifyImgArr);
-  var imgArrFromLS = localStorage.getItem('imgArr');
-  imagesArray = JSON.parse(imgArrFromLS); 
+  var stringifyImgArrLeft = JSON.stringify(imagesArray);
+  localStorage.setItem('imgArr', stringifyImgArrLeft);
+  var imgArrFromLsLeft = localStorage.getItem('imgArr');
+  imagesArray = JSON.parse(imgArrFromLsLeft); 
 
   // console.log(imagesArray);
 
@@ -93,10 +93,10 @@ right.addEventListener ('click', function(e) {
   var targetSource = e.target.src;
   targetSource = targetSource.split("tracker/")[1];
   tracker.voteFor(targetSource);
-  var stringifyImgArr = JSON.stringify(imagesArry);
-  localStorage.setItem('imgArr',imagesArray);
-  var imgArrFromLS = localStorage.getItem('imgArr');
-  imagesArray = JSON.parse(imgArrFromLS);
+  var stringifyImgArrRight = JSON.stringify(imagesArray);
+  localStorage.setItem('imgArr', stringifyImgArrRight);
+  var imgArrFromLsRight = localStorage.getItem('imgArr');
+  imagesArray = JSON.parse(imgArrFromLsRight);
 
   tracker.randChoice();
   chartData();
@@ -203,12 +203,20 @@ var chartData = function(){
 };
 
 
-function onload (){
+function onloadLeft (){
   if ( localStorage.getItem('imgArr') != null) {
-    var imgArrFromLS = localStorage.getItem('imgArr');
-    imagesArray = JSON.parse(imgArrFromLS); 
+    var imgArrFromLsLeft = localStorage.getItem('imgArr');
+    imagesArray = JSON.parse(imgArrFromLsLeft); 
+    chartData();
+  }
+}
+function onloadRight (){
+  if ( localStorage.getItem('imgArr') != null) {
+    var imgArrFromLsRight = localStorage.getItem('imgArr');
+    imagesArray = JSON.parse(imgArrFromLsRight); 
     chartData();
   }
 }
 
-onload();
+onloadLeft();
+onloadRight();
