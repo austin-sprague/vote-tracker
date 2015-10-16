@@ -5,10 +5,6 @@ function Image(place,type,path,votes){
   this.placeType = type;
   this.path = path;
   this.votes = 0;
-
-  // localStorage.setItem(this.place,this.votes);
-  // var storedImage = localStorage.getItem(this.votes);
-  
   
 }
 
@@ -30,7 +26,6 @@ var imagesArray = [
   new Image ('victrola', 'Roastery','img/victrola.jpg',0)
 ]
 
-
 // random number generator
 
 var tracker = {
@@ -44,6 +39,8 @@ var tracker = {
 var left = document.getElementById('left');
 var right = document.getElementById('right');
 
+var results;
+
 tracker.randChoice = function (){
   var randChoice1 = this.randNum();
   var randChoice2 = this.randNum();
@@ -51,12 +48,13 @@ tracker.randChoice = function (){
     console.log ("duplicate found");
     randChoice2 = this.randNum();
   }
-  var results = [randChoice1, randChoice2];
+  results = [randChoice1, randChoice2];
   left.src = imagesArray[results[0]].path;
   right.src = imagesArray[results[1]].path;
 
 }
 
+tracker.randChoice();
 
 // counter function
 
@@ -70,9 +68,6 @@ tracker.voteFor = function (uri) {
   }
 
   this.votes = this.counter +=1;
-  
-  
-  
 
 };
 
@@ -82,10 +77,12 @@ left.addEventListener ('click', function(e) {
   var targetSource = e.target.src;
   targetSource = targetSource.split("tracker/")[1];
   tracker.voteFor(targetSource);
-  
-  // console.log(targetSource);
+  var stringifyImgArr = JSON.stringify(imagesArray);
+  localStorage.setItem('imgArr', stringifyImgArr);
+  var imgArrFromLS = localStorage.getItem('imgArr');
+  imagesArray = JSON.parse(imgArrFromLS); 
 
-
+  // console.log(imagesArray);
 
   tracker.randChoice();
   chartData();
@@ -96,6 +93,11 @@ right.addEventListener ('click', function(e) {
   var targetSource = e.target.src;
   targetSource = targetSource.split("tracker/")[1];
   tracker.voteFor(targetSource);
+  var stringifyImgArr = JSON.stringify(imagesArry);
+  localStorage.setItem('imgArr',imagesArray);
+  var imgArrFromLS = localStorage.getItem('imgArr');
+  imagesArray = JSON.parse(imgArrFromLS);
+
   tracker.randChoice();
   chartData();
 
@@ -186,6 +188,7 @@ var chartData = function(){
       color: '#99D6FF',
       hightlight: '#9CBA99'
     }
+
   ];
 
   var context =document.getElementById('chart').getContext('2d');
@@ -199,4 +202,13 @@ var chartData = function(){
   });
 };
 
-chartData();
+
+function onload (){
+  if ( localStorage.getItem('imgArr') != null) {
+    var imgArrFromLS = localStorage.getItem('imgArr');
+    imagesArray = JSON.parse(imgArrFromLS); 
+    chartData();
+  }
+}
+
+onload();
