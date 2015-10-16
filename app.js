@@ -5,24 +5,29 @@ function Image(place,type,path,votes){
   this.placeType = type;
   this.path = path;
   this.votes = 0;
+
+  // localStorage.setItem(this.place,this.votes);
+  // var storedImage = localStorage.getItem(this.votes);
+  
+  
 }
 
 // new image object constructor function for images in array
 
 var imagesArray = [
-  new Image ('bauhaus', 'Extra Strong Coffee', 'img/bauhaus.jpg'),
+  new Image ('bauhaus', 'Extra Strong Coffee', 'img/bauhaus.jpg',0),
   new Image ('caffe vita','Roastery', 'img/cafe-vita.jpg'),
-  new Image ('cherry street','Coffee House with Famous Barista', 'img/CherryStreet.jpg'),
-  new Image ('elysian','Brewery', 'img/elysian.jpg'),
+  new Image ('cherry street','Coffee House with Famous Barista', 'img/CherryStreet.jpg',0),
+  new Image ('elysian','Brewery', 'img/elysian.jpg',0),
   new Image ('fremont','Brewery', 'img/fremont-brewing.png'),
-  new Image ('hello robin','Specialty Cookies', 'img/hello-robin.jpg'),
-  new Image ('hilliards', 'Brewery','img/hilliards.jpg'),
-  new Image ('hot cakes', 'Molten Chocolate Cakes','img/hot-cakes.jpg'),
-  new Image ('molly-moon','Homemade Ice Cream', 'img/molly-moon.png'),
-  new Image ('rainier','Beer', 'img/rainierbeer.jpg'),
-  new Image ('starbucks','Coffee', 'img/starbucks.jpg'),
-  new Image ('top pot','hand-forged donuts', 'img/top-pot.jpg'),
-  new Image ('victrola', 'Roastery','img/victrola.jpg')
+  new Image ('hello robin','Specialty Cookies', 'img/hello-robin.jpg',0),
+  new Image ('hilliards', 'Brewery','img/hilliards.jpg',0),
+  new Image ('hot cakes', 'Molten Chocolate Cakes','img/hot-cakes.jpg',0),
+  new Image ('molly-moon','Homemade Ice Cream', 'img/molly-moon.png',0),
+  new Image ('rainier','Beer', 'img/rainierbeer.jpg',0),
+  new Image ('starbucks','Coffee', 'img/starbucks.jpg',0),
+  new Image ('top pot','hand-forged donuts', 'img/top-pot.jpg',0),
+  new Image ('victrola', 'Roastery','img/victrola.jpg',0)
 ]
 
 
@@ -49,7 +54,6 @@ tracker.randChoice = function (){
   var results = [randChoice1, randChoice2];
   left.src = imagesArray[results[0]].path;
   right.src = imagesArray[results[1]].path;
-  console.log(left);
 
 }
 
@@ -57,6 +61,7 @@ tracker.randChoice = function (){
 // counter function
 
 tracker.voteFor = function (uri) {
+  
   for (var i in imagesArray){
     if (imagesArray[i].path === uri){
       imagesArray[i].votes +=1;
@@ -65,9 +70,11 @@ tracker.voteFor = function (uri) {
   }
 
   this.votes = this.counter +=1;
+  
+  
+  
+
 };
-
-
 
 // add event Listener
 
@@ -75,6 +82,11 @@ left.addEventListener ('click', function(e) {
   var targetSource = e.target.src;
   targetSource = targetSource.split("tracker/")[1];
   tracker.voteFor(targetSource);
+  
+  // console.log(targetSource);
+
+
+
   tracker.randChoice();
   chartData();
 
@@ -186,19 +198,5 @@ var chartData = function(){
 
   });
 };
-
-
-// convert Image object to JSON
-
-// var jsonImage = JSON.stringify(imagesArray[0].votes);
-
-// // set local storage item
-// localStorage.setItem(imagesArray[0].votes,jsonImage);
-
-// // get local storage item
-// var storedImage = localStorage.getItem('votes');
-
-// //decode from JSON to tracker object
-// var parseImage = JSON.parse(storedImage);
 
 chartData();
