@@ -18,15 +18,15 @@ var imagesArray = [
   new Image ('hello robin','Specialty Cookies', 'img/hello-robin.jpg'),
   new Image ('hilliards', 'Brewery','img/hilliards.jpg'),
   new Image ('hot cakes', 'Molten Chocolate Cakes','img/hot-cakes.jpg'),
-  new Image ('molly-moon','Handmade Ice Cream', 'img/molly-moon.png'),
+  new Image ('molly-moon','Homemade Ice Cream', 'img/molly-moon.png'),
   new Image ('rainier','Beer', 'img/rainierbeer.jpg'),
   new Image ('starbucks','Coffee', 'img/starbucks.jpg'),
   new Image ('top pot','hand-forged donuts', 'img/top-pot.jpg'),
   new Image ('victrola', 'Roastery','img/victrola.jpg')
 ]
 
-// random number generator
 
+// random number generator
 
 var tracker = {
   randNum: function () {
@@ -49,6 +49,8 @@ tracker.randChoice = function (){
   var results = [randChoice1, randChoice2];
   left.src = imagesArray[results[0]].path;
   right.src = imagesArray[results[1]].path;
+  console.log(left);
+
 }
 
 
@@ -73,8 +75,6 @@ left.addEventListener ('click', function(e) {
   var targetSource = e.target.src;
   targetSource = targetSource.split("tracker/")[1];
   tracker.voteFor(targetSource);
-
-  // console.log("the vote is + imagesArray[results[0]].votes);
   tracker.randChoice();
   chartData();
 
@@ -84,7 +84,6 @@ right.addEventListener ('click', function(e) {
   var targetSource = e.target.src;
   targetSource = targetSource.split("tracker/")[1];
   tracker.voteFor(targetSource);
-  //console.log("the vote is" + imagesArray[results[1]].votes);
   tracker.randChoice();
   chartData();
 
@@ -180,12 +179,26 @@ var chartData = function(){
   var context =document.getElementById('chart').getContext('2d');
 
   var seattleChart = new Chart(context).Doughnut(data, {
-    animationSteps: 100,
+    animationSteps: 50,
     animationEasing: "easeOutBounce",
-    animateRotate:  true,
-    animateScale: true
+    animateRotate:  false,
+    animateScale: false
 
   });
 };
+
+
+// convert Image object to JSON
+
+// var jsonImage = JSON.stringify(imagesArray[0].votes);
+
+// // set local storage item
+// localStorage.setItem(imagesArray[0].votes,jsonImage);
+
+// // get local storage item
+// var storedImage = localStorage.getItem('votes');
+
+// //decode from JSON to tracker object
+// var parseImage = JSON.parse(storedImage);
 
 chartData();
