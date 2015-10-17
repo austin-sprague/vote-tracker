@@ -1,5 +1,75 @@
-body {
-  
-font-family: 'Raleway', sans-serif;
+header{
+  display: flex;
+  flex-grow:1;
+  flex-direction: inline-block;
+  font-family: 'Raleway', sans-serif;
+  background-color: #4A5965;
+  color: white;
+  padding: 20px;
+  padding-left: 90px;
+  font-size: 24;
+}
+.p {
+  color: #CBE32D;
+/*color: black;*/
+  display: flex;
+  flex-grow:1;
+  flex-direction:row;
+  font-size: 18;
 
+
+}
+
+.chart{
+  display: flex;
+  flex-grow:1;
+  flex-direction:row;
+  justify-content: center;
+}
+
+body{
+  font-family: 'Raleway', sans-serif;
+  background-color: #1D2F3E;
+
+}
+.h1{
+  font-family: 'Raleway', sans-serif;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-grow:1;
+  flex-direction: inline-block;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #1D2F3E;
+}
+
+.child {
+  
+  font-family: Times;
+  text-align: center;
+  padding: 30px 20px;
+  color: #AB3334;
+}
+
+#box-one, #box-two{
+  display: inline-block;
+/*   border: 5px solid;*/
+/*   border-color: #92782C;*/
+   border-radius: 50px 50px 50px 50px ;
+   background-color: #172632;
+ 
+}
+/*#box-three {
+font-family: 'Raleway', sans-serif;
+  #box-three.label{
+    text-align: center;
+
+  }
+  text-align: center;
+
+  */
 }

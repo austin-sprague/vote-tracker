@@ -1,29 +1,41 @@
-<!DOCTYPE html>
+
 <html>
 <head>
 
-  <title>
-
-  </title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="layout.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Seattle Spots</title>
   <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <script src="chart.js"></script>
+
 </head>
 <body>
+
   <header>
     <h1>Seattle</h1>
+      <p class="p">Let's Vote! Where will you find the most hipsters?</p>
+
+    <div class="chart">
+      <canvas id="chart" width="100" height="100"></canvas>
+    </div>
 
   </header>
-  <div class = "photos">
-    <img id = "left" src=" " width = 300px height = 200px>
-    <img id = "right" src=" " width = 300px height =200px>
 
-  <canvas id="chart" width="600" height="400"></canvas>
+  <div class="container">
+      <section id="box-one" class="child">
+        <h4> Here??</h4>
+        <img id = "left" src=" " width = 400px height = 300px>
+      </section>
+
+      <section id="box-two" class="child">
+        <h4>or HERE???</h4>
+        <img id = "right" src=" " width = 400px height =300px>
+      </section>
+        
   </div>
 
   <script src="app.js"></script>
-
 </body>
-
 </html>
